@@ -5,9 +5,6 @@ const passport      = require('passport');
 
 const router = express.Router();
 
-// router.get('/adduser',(req,res)=>{
-//     res.json();
-// });
 
 router.post('/adduser',async (req,res)=>{
     console.log('sdfsd')
@@ -27,9 +24,6 @@ router.post('/adduser',async (req,res)=>{
      });
 });
 
-// router.get('/login',(req,res)=>{
-//     res.json({msg:'working'})
-// });
 
 router.post('/login',(req,res)=>{
       userModel.email(req.body.email,(err,emailData)=>{
@@ -61,8 +55,5 @@ router.post('/login',(req,res)=>{
     });
 });
 
-router.get('/dashboard',passport.authenticate('jwt',{session:false}),(req,res)=>{
-       res.json({msg:'success'});
-});
 
 module.exports = router;
