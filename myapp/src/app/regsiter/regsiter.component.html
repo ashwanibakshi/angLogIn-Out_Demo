@@ -1,0 +1,24 @@
+<div class="nav justify-content-center">
+   <h2 style="margin-top:5%;">Register</h2>
+</div>
+<div class="nav justify-content-center">
+<div class="jumbotron bg-warning" style="width: fit-content;">
+  <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value,myForm.valid)">
+    <input class="form-control" type="text" name="uname" [(ngModel)]="user.uname" #uname= "ngModel" required placeholder="enter username"> <br>
+    <!-- <span [hidden]="uname.valid || (uname.untouched)">fill field</span> -->
+    <div *ngIf="uname.touched">
+      <span *ngIf="uname.errors?.required">Fill data in field</span>
+    </div>
+    <input class="form-control" type="email" name="email" [(ngModel)]="user.email" #uemail="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="enter the email address"><br>
+    <div *ngIf="uemail.touched">
+      <p *ngIf="uemail.errors?.required">Fill data in field</p>
+      <p *ngIf="uemail.errors?.pattern">email is not correct</p>
+   </div>
+   <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #password="ngModel" required placeholder="enter the password">
+   <div *ngIf="password.touched">
+    <p *ngIf="password.errors?.required">Fill the field</p>
+   </div><br>
+    <div class="text-center"><button type="submit"  [disabled]="!myForm.form.valid" style="color:red">Register</button></div>
+  </form>
+ </div>
+</div>

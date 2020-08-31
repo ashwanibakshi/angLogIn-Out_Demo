@@ -1,0 +1,19 @@
+<div class="nav justify-content-center">
+  <h2 style="margin-top:5%;">Login</h2>
+</div>
+<div class="nav justify-content-center">
+<div class="jumbotron bg-warning" style="width: fit-content;">
+ <form #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value,myForm.valid)">
+   <input class="form-control" type="email" name="email" [(ngModel)]="user.email" #uemail="ngModel" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"  placeholder="enter the email address"><br>
+   <div *ngIf="uemail.touched">
+     <p *ngIf="uemail.errors?.required">Fill data in field</p>
+     <p *ngIf="uemail.errors?.pattern">email is not correct</p>
+  </div>
+  <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #pass="ngModel" required placeholder="enter password">
+  <div *ngIf="pass.touched">
+    <p *ngIf="pass.errors?.required">Fill data in field</p>
+  </div>
+   <div class="text-center" style="margin-top: 15px;"><button type="submit"  [disabled]="!myForm.form.valid" style="color:red;size: 10px;">Login</button></div>
+ </form>
+</div>
+</div>
