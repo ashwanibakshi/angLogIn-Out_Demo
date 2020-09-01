@@ -15,9 +15,7 @@ Open 2 terminal/cmd prompt
 
 <h3>Start AngularApp</h3>
 
-1.On Second terminal/cmd prompt 
-
-2.Set folder path  myapp/src/app then type 
+1.On Second terminal/cmd prompt Set folder path  <b>"myapp/src/app"</b> then type 
 
 -- ng serve
 
