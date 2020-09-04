@@ -1,6 +1,7 @@
 const express       = require('express');
 const userModel     = require('../models/user');
 const jwt           = require('jsonwebtoken');
+const passsport     = require('passport');
 
 const router = express.Router();
 
@@ -54,5 +55,9 @@ router.post('/login',(req,res)=>{
     });
 });
 
+router.get('/userData',passsport.authenticate('jwt',{session:false}),(req,res)=>{
+    console.log(req.user)
+    res.json({udata:req.user[0].username});
+});
 
 module.exports = router;
